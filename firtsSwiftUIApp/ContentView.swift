@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView{
+            List(developers){ developer in
+                NavigationLink(destination: ContentDetail(name: developer.name)){
+                     ContentRow(codName: developer.name)
+                }
+            }.navigationBarTitle(Text("People"))
+        }
     }
 }
 
